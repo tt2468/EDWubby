@@ -18,10 +18,10 @@ module.exports = new Plugin({
                 guildCount.innerHTML = Object.keys(og).length + ' Servers';
                 return og;
             }
-            let friendCount = document.querySelector('.friends-online');
+            let friendCount = document.querySelector('[class^="friendsOnline-"]');
             if (friendCount) {
                 guildCount = document.createElement('div');
-                guildCount.className = 'friends-online';
+                guildCount.className = friendCount.className;
                 guildCount.innerHTML = Object.keys(og).length + ' Servers';
                 guildCount.id = 'ed_guild_count';
                 try { friendCount.parentElement.insertBefore(guildCount, friendCount.nextSibling); } catch(err) { module.exports.error(err); }
