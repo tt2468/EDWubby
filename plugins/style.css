@@ -2,8 +2,7 @@
 
 /* theme settings */
 :root {
-    /* background for the entire window. Almost everything is transparent to this image. */
-    --bg: url(https://wallpaper.wiki/wp-content/uploads/2017/06/Beautiful-Mountain-in-Night-Wallpapers-HD-Pictures.jpg);
+    --bg: url(https://i.imgur.com/SJkkVGI.png); /* background for the entire window. Almost everything is transparent to this image. */
     --bg-overlay: rgba(0, 0, 0, 0.8); /* overlay for the background. Generally, this should darken the picture to make text more readable. */
     --accent-color: #900; /* color of buttons, misc. text, etc. */
     --mention-color: #f00; /* color of mention text */
@@ -17,17 +16,6 @@
     --popup-highlight: #333; /* color of headers and footers of "popouts" (linked to above) */
     --context-menu-bg: #333; /* color of context (right-click) menus. */
     --unread-color: #f00; /* color of unread/selected server indicators. */
-}
-
-/* tags */
-.avatar-large[style*="246107833295175681"]+.comment .username-wrapper:after {
-    content: 'Dumbass'; /* Joe */
-}
-.avatar-large[style*="300800171988484096"]+.comment .username-wrapper:after {
-    content: 'secretly sentient'; /* Bender */
-}
-.avatar-large[style*="300800171988484096"]+.comment .botTag-1OwMgs {
-    display: none;
 }
 
 /* nitrofag badge */
