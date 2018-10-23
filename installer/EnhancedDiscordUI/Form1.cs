@@ -358,7 +358,7 @@ namespace EnhancedDiscordUI
             StatusText.Text = "Finished extracting zip. Cleaning up...";
             try
             {
-                Directory.Move("./EnhancedDiscord-" + branch, "./EnhancedDiscord");
+                Directory.Move("./EDWubby-" + branch, "./EnhancedDiscord");
             }
             catch
             {
