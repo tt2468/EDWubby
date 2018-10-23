@@ -63,22 +63,32 @@ function loadPlugin(plugin) {
     }
 }
 
-window.ED.localStorage = window.localStorage;
-
 process.once("loaded", async () => {
-    while (typeof window.webpackJsonp === 'undefined')
-       await c.sleep(1000); // wait until this is loaded in order to use it for modules
+	while (typeof window.webpackJsonp === 'undefined')
+		await c.sleep(1000); // wait until this is loaded in order to use it for modules
 
-    c.log('Loading v2.1.1 BETA...');
+	c.log('Loading v2.1.0...');
 
-    window.ED.webSocket = window._ws;
+    let x = setInterval(() => {
+        if (window._ws) {
+            window.ED.webSocket = window._ws;
+            clearInterval(x);
+        }
+    }, 100);
 
-    /* Add helper functions that make plugins easy to create */
-    window.req = webpackJsonp.push([[], {
-        '__extra_id__': (module, exports, req) => module.exports = req
-    }, [['__extra_id__']]]);
-    delete req.m['__extra_id__'];
-    delete req.c['__extra_id__'];
+    let y = setInterval(() => {
+        if (window.localStorage) {
+            window.ED.localStorage = window.localStorage;
+            clearInterval(y);
+        }
+    }, 100);
+
+	/* Add helper functions that make plugins easy to create */
+	window.req = webpackJsonp.push([[], {
+	    '__extra_id__': (module, exports, req) => module.exports = req
+	}, [['__extra_id__']]]);
+	delete req.m['__extra_id__'];
+	delete req.c['__extra_id__'];
 
     window.findModule = (module, silent) => {
         for (let i in req.c) {
