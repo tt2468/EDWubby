@@ -161,17 +161,7 @@ namespace EnhancedDiscordUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to const { BrowserWindow, session } = require(&apos;electron&apos;);
-        ///const path = require(&apos;path&apos;);
-        ///
-        ///session.defaultSession.webRequest.onHeadersReceived(function(details, callback) {
-        ///
-        ///    if (!details.responseHeaders[&quot;content-security-policy-report-only&quot;] &amp;&amp; !details.responseHeaders[&quot;content-security-policy&quot;]) return callback({cancel: false});
-        ///    delete details.responseHeaders[&quot;content-security-policy-report-only&quot;];
-        ///
-        ///    delete details.responseHeaders[&quot;content-security-policy&quot;];
-        ///
-        ///    callback({cancel: false, r [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to require(`${process.env.injDir}/injection.js`);.
         /// </summary>
         internal static string injection {
             get {
