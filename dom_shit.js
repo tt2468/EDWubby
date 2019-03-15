@@ -4,6 +4,9 @@ const electron = window.require('electron');
 const currentWindow = electron.remote.getCurrentWindow();
 if (currentWindow.__preload) require(currentWindow.__preload);
 
+//Get inject directory
+if (!process.env.injDir) process.env.injDir = __dirname;
+
 //set up global functions
 let c = {
     log: function(msg, plugin) {
@@ -33,7 +36,7 @@ let c = {
     }
 }
 // config util
-window.ED = { plugins: {}, version: '2.3.0' };
+window.ED = { plugins: {}, version: '2.3.1' };
 Object.defineProperty(window.ED, 'config', {
     get: function() {
         return require('./config.json') || {};
@@ -291,7 +294,7 @@ window.EDApi = window.BdApi = class EDApi {
             toastWrapper.style.setProperty("left", boundingElement ? boundingElement.getBoundingClientRect().left + "px" : "0px");
             toastWrapper.style.setProperty("width", boundingElement ? boundingElement.offsetWidth + "px" : "100%");
             toastWrapper.style.setProperty("bottom", (document.querySelector(".chat-3bRxxu form") ? document.querySelector(".chat-3bRxxu form").offsetHeight : 80) + "px");
-            document.querySelector(".app").appendChild(toastWrapper);
+            document.querySelector("." + findModule('app').app).appendChild(toastWrapper);
         }
         const {type = "", icon = true, timeout = 3000} = options;
         let toastElem = document.createElement("div");
